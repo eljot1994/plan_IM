@@ -1,0 +1,484 @@
+{% extends 'base.html' %} {% block title %} IM - plan {% endblock %} {% block body %}
+<div class="jumbotron p-3">
+    <div class="well text-center">
+        <h1>Instytut Matematyki - Plan</h1>
+    </div>
+</div>
+
+<div class="container-{100%}">
+    <div class="row">
+        <div class="col md-12">
+            {% with messages =
+            get_flashed_messages() %} {% if messages%} {% for message in messages %}
+            <div class="alert alert-success alert-dismissable" role="alert">
+                <button aria-label="close" class="close" data-dismiss="alert" type="button"><span
+                        aria-hidden="True">x</span></button>
+                {{message}}
+            </div>
+            {% endfor %} {% endif %} {% endwith %}
+            <div class="jumbotron p-3">
+                <div style="float: left">
+                    <h2>{{current_user.user_name}}</h2><pre>Pokój: {{current_user.user_room}} Zakład: {{current_user.user_depar}}</pre>
+                </div>
+                <div style="float: right">
+                    <br>
+                    <button class="btn btn-success float-left my-2 mx-3" data-target="#mymodal" data-toggle="modal"
+                            type="button">Dodaj zajęcia
+                    </button>
+                    <button class="btn btn-success float-left my-2 mx-3" data-target="#mymodal_D" data-toggle="modal"
+                            type="button">Dodaj dyżur
+                    </button>
+                    <a class="btn btn-success float-left my-2 mx-3" type="button" href="/generate">Wygeneruj plan</a>
+                    <a class="btn btn-success float-left my-2 mx-3" type="button" href="/generate_all">Wygeneruj cały plan</a>
+                    <a class="btn btn-warning float-left my-2 mx-3" href="/logout">Wyloguj się</a>
+                </div>
+
+                <table class="table table-hover table-light">
+                    <tr>
+                        <th>Dzień tygodnia</th>
+                        <th>Tydzień</th>
+                        <th>Godzina rozpoczęcia</th>
+                        <th>Godzina zakończenia</th>
+                        <th>Rodzaj zajęć</th>
+                        <th>Nazwa przedmiotu</th>
+                        <th>Wydział</th>
+                        <th>Kierunek</th>
+                        <th>Stopień</th>
+                        <th>Semestr</th>
+                        <th>Budynek</th>
+                        <th>Sala</th>
+                        <th>Komentarz</th>
+                        <th>Opcje</th>
+                    </tr>
+                    {% for row in units %} {% if row.data_user == current_user.user_name %}
+                    <tr>
+                        <td>{{row.day}}</td>
+                        {% if row.week == 0 %}
+                        <td>co tydzień</td>
+                        {% elif row.week == 1 %}
+                        <td>w tygodnie nieparzyste</td>
+                        {% else %}
+                        <td>w tygodnie parzyste</td>
+                        {% endif %}
+                        <td>{{row.start}}</td>
+                        <td>{{row.end}}</td>
+                        {% if row.unit_type == 'W' %}
+                        <td>Wykład</td>
+                        {% elif row.unit_type == 'C' %}
+                        <td>Ćwiczenia</td>
+                        {% elif row.unit_type == 'L' %}
+                        <td>Laboratorium</td>
+                        {% elif row.unit_type == 'P' %}
+                        <td>Projekt</td>
+                        {% elif row.unit_type == 'S' %}
+                        <td>Seminarium</td>
+                        {% elif row.unit_type == 'D' %}
+                        <td>Dyżur</td>
+                        {% else %}
+                        <td></td>
+                        {% endif %}
+                        <td>{{row.unit_name}}</td>
+                        <td>{{row.unit_department}}</td>
+                        <td>{{row.unit_course}}</td>
+                        <td>{{row.unit_degree}}</td>
+                        <td>{{row.unit_term}}</td>
+                        <td>{{row.unit_building}}</td>
+                        <td>{{row.unit_room}}</td>
+                        <td>{{row.comment}}</td>
+
+                        <td>
+                            {% if row.unit_type == 'D' %}
+                            <a class="btn btn-warning btn-xs my-1" data-target="#modal_D_edit{{row.id}}"
+                               data-toggle="modal"
+                               href="/update/{{row.id}}">Edytuj</a>
+
+                            {% else %}
+                            <a class="btn btn-warning btn-xs my-1" data-target="#modaledit{{row.id}}"
+                               data-toggle="modal"
+                               href="/update/{{row.id}}">Edytuj</a>
+
+                            {% endif %}
+                            <br>
+                            <a class="btn btn-warning btn-xs my-1" href="/duplicate/{{row.id}}"
+                            >Zduplikuj</a> <br> <a
+                                class="btn btn-danger btn-xs my-1" href="/delete/{{row.id}}"
+                                onclick="return confirm('Czy na pewno usunąć?')">Usuń</a></td>
+                    </tr>
+
+                    <div class="modal fade" id="modal_D_edit{{row.id}}" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header"><h4 class="modal-title">Edytuj zajęcia</h4></div>
+                                <div class="modal-body">
+                                    <form action="{{url_for('update')}}" method="POST"><input name="id" type="hidden"
+                                                                                              value="{{row.id}}"> <input
+                                            name="data_user" type="hidden" value="{{row.data_user}}">
+                                        <div class="form-group"><label>Dzień tygodnia</label> <select
+                                                class="form-control" name="day" required>
+                                                {% for name in list_day %}
+                                            {%if name == row.day%}
+                                            <option selected value="{{name}}">{{name}}</option>
+                                            {% else%}
+                                            <option value="{{name}}">{{name}}</option>
+                                            {% endif %} {% endfor %}
+                                        </select></div>
+                                        <div class="form-group"><label>Dyżur odbywa się</label> <select
+                                                class="form-control" name="week" required>
+                                            <option value="0">co tydzień</option>
+                                            <option value="1">w tygodnie nieparzyste</option>
+                                            <option value="2">w tygodnie parzyste</option>
+                                        </select></div>
+                                        <div class="form-group"><label>Godzina rozpoczęcia</label> <input
+                                                class="form-control" name="start" required type="time"
+                                                value="{{row.start}}"></div>
+                                        <div class="form-group"><label>Godzina zakończenia</label>
+                                            <input
+                                                    class="form-control" name="end" required type="time"
+                                                    value="{{row.end}}">
+                                        </div>
+
+                                        <input
+                                                name="unit_type" type="hidden" value="D">
+
+                                        <input
+                                                name="unit_name" type="hidden" value="">
+
+                                        <input
+                                                name="unit_department" type="hidden" value="">
+
+                                        <input
+                                                name="unit_course" type="hidden" value="">
+
+                                        <input
+                                                name="unit_degree" type="hidden" value="">
+
+
+                                        <input
+                                                name="unit_term" type="hidden" value="">
+
+                                        <input
+                                                name="unit_building" type="hidden" value="EL">
+                                        <input name="unit_room" type="hidden"
+                                               value="{{current_user.user_room}}">
+                                        <div class="form-group"><label>Komentarz</label><input class="form-control"
+                                                                                               name="comment"
+                                                                                               type="text"
+                                                                                               value="{{row.comment}}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <button class="btn btn-primary" type="submit">ZAPISZ</button>
+                                        </div>
+                                    </form>
+                                    <div class="modal-body">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="modaledit{{row.id}}" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header"><h4 class="modal-title">Edytuj zajęcia</h4></div>
+                                <div class="modal-body">
+                                    <form action="{{url_for('update')}}" method="POST"><input name="id" type="hidden"
+                                                                                              value="{{row.id}}"> <input
+                                            name="data_user" type="hidden" value="{{row.data_user}}">
+                                        <div class="form-group"><label>Dzień tygodnia</label> <select
+                                                class="form-control" name="day" required>
+                                {% for name in list_day %}
+                                            {%if name == row.day%}
+                                            <option selected value="{{name}}">{{name}}</option>
+                                            {% else%}
+                                            <option value="{{name}}">{{name}}</option>
+                                            {% endif %} {% endfor %}
+                                        </select></div>
+                                        <div class="form-group"><label>Zajęcia odbywają się</label> <select
+                                                class="form-control" name="week" required>
+                                            <option value="0">co tydzień</option>
+                                            <option value="1">w tygodnie nieparzyste</option>
+                                            <option value="2">w tygodnie parzyste</option>
+                                        </select></div>
+                                        <div class="form-group"><label>Godzina rozpoczęcia</label> <input
+                                                class="form-control" name="start" required type="time"
+                                                value="{{row.start}}"></div>
+                                        <div class="form-group"><label>Godzina zakończenia</label>
+                                            <input
+                                                    class="form-control" name="end" required type="time"
+                                                    value="{{row.end}}">
+                                        </div>
+                                        <div class="form-group"><label>Rodzaj zajęć</label> <select class="form-control"
+                                                                                                    name="unit_type"
+                                                                                                    required>
+                                            <option value="W">Wykład</option>
+                                            <option value="C">Cwiczenia</option>
+                                            <option value="L">Laboratorium</option>
+                                            <option value="S">Seminarium</option>
+                                            <option value="P">Projekt</option>
+                                        </select></div>
+                                        <div class="form-group"><label>Nazwa przedmiotu</label> <select
+                                                class="form-control" name="unit_name" required>
+                                            <option value=""></option>
+                                            <optgroup label="A"> {% for name in list_name %} {% if name|length == 1 %}
+                                            </optgroup>
+                                            <optgroup label="{{name}}"> {% else %} {%if name == row.unit_name %}
+                                                <option selected value="{{name}}">{{name}}</option>
+                                                {% else%}
+                                                <option value="{{name}}">{{name}}</option>
+                                                {% endif %} {%endif%} {% endfor %}
+                                            </optgroup>
+                                        </select></div>
+                                        <div class="form-group"><label>Wydział</label> <select class="form-control"
+                                                                                               name="unit_department"
+                                                                                               required>
+                                            <option value=""></option>
+                                            {% for name in list_department %}
+                                            {%if name == row.unit_department%}
+                                            <option selected value="{{name}}">{{name}}</option>
+                                            {% else%}
+                                            <option value="{{name}}">{{name}}</option>
+                                            {% endif %} {% endfor %}
+
+                                        </select></div>
+                                        <div class="form-group"><label>Kierunek</label> <select class="form-control"
+                                                                                                name="unit_course"
+                                                                                                required>
+                                            <option value=""></option>
+                                            <optgroup label="A"> {% for name in list_course %} {% if name|length == 1
+                                                %}
+                                            </optgroup>
+                                            <optgroup label="{{name}}"> {% else %} {%if name == row.unit_course %}
+                                                <option selected value="{{name}}">{{name}}</option>
+                                                {% else%}
+                                                <option value="{{name}}">{{name}}</option>
+                                                {% endif %} {%endif%} {% endfor %}
+                                            </optgroup>
+                                        </select></div>
+                                        <div class="form-group"><label>Stopień</label> <select class="form-control"
+                                                                                               name="unit_degree"
+                                                                                               required>
+                                            <option value="I">I</option>
+                                            <option value="II">II</option>
+                                        </select></div>
+                                        <div class="form-group"><label>Semestr</label> <select class="form-control"
+                                                                                               name="unit_term"
+                                                                                               required> {% for i in
+                                            range(1,6) %} {% if row.unit_term == i %}
+                                            <option selected value="{{i}}">{{i}}</option>
+                                            {% else %}
+                                            <option value="{{i}}">{{i}}</option>
+                                            {% endif %} {% endfor %} </select></div>
+                                        <div class="form-group"><label>Budynek</label><select class="form-control"
+                                                                                       name="unit_building" required>
+                                    <option value=""></option>
+                                     {% for name in list_building %}
+{% if name == row.unit_building %}
+                                            <option value="{{name}}" selected>{{name}}</option>
+
+                                            {% else %}
+                                            <option value="{{name}}">{{name}}</option>
+                                            {% endif %}
+                                            {% endfor %}
+                                </select>
+                                        </div>
+                                        <div class="form-group"><label>Sala</label> <input class="form-control"
+                                                                                           name="unit_room" required
+                                                                                           type="text"
+                                                                                           value="{{row.unit_room}}">
+                                        </div>
+
+                                        <div class="form-group"><label>Komentarz</label><input class="form-control"
+                                                                                               name="comment"
+                                                                                               type="text"
+                                                                                               value="{{row.comment}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="btn btn-primary" type="submit">ZAPISZ</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" data-dismiss="modal" type="button">ZAMKNIJ
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %} {% endfor %}
+                </table>
+            </div>
+            <div class="modal fade" id="mymodal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header"><h4 class="modal-title">DODAJ ZAJĘCIA</h4></div>
+                        <div class="modal-body">
+                            <form action="{{url_for('insert')}}" method="POST"><input name="data_user" type="hidden"
+                                                                                      value="{{current_user.user_name}}">
+                                <div class="form-group"><label>Dzień tygodnia</label> <select class="form-control"
+                                                                                              name="day" required>
+                                    <option value=""></option>
+                                    {% for name in list_day %}
+
+                                            <option value="{{name}}">{{name}}</option>
+                                            {% endfor %}
+                                </select></div>
+                                <div class="form-group"><label>Zajęcia odbywają się</label> <select class="form-control"
+                                                                                                    name="week"
+                                                                                                    required>
+                                    <option value="0">co tydzień</option>
+                                    <option value="1">w tygodnie nieparzyste</option>
+                                    <option value="2">w tygodnie parzyste</option>
+                                </select></div>
+                                <div class="form-group"><label>Godzina rozpoczęcia</label> <input class="form-control"
+                                                                                                  name="start" required
+                                                                                                  type="time"></div>
+                                <div class="form-group"><label>Godzina zakończenia</label> <input class="form-control"
+                                                                                                  name="end" required
+                                                                                                  type="time"></div>
+                                <div class="form-group"><label>Rodzaj zajęć</label> <select class="form-control"
+                                                                                            name="unit_type" required>
+                                    <option value=""></option>
+                                    <option value="W">Wykład</option>
+                                    <option value="C">Cwiczenia</option>
+                                    <option value="L">Laboratorium</option>
+                                    <option value="S">Seminarium</option>
+                                    <option value="P">Projekt</option>
+                                </select></div>
+                                <div class="form-group"><label>Nazwa przedmiotu</label> <select class="form-control"
+                                                                                                name="unit_name"
+                                                                                                required>
+                                    <option value=""></option>
+                                    <optgroup label="A"> {% for name in list_name %} {% if name|length == 1 %}
+                                    </optgroup>
+                                    <optgroup label="{{name}}"> {% else %}
+                                        <option value="{{name}}">{{name}}</option>
+                                        {%endif%} {% endfor %}
+                                    </optgroup>
+                                </select></div>
+                                <div class="form-group"><label>Wydział</label> <select class="form-control"
+                                                                                       name="unit_department" required>
+                                    <option value=""></option>
+                                    {% for name in list_department %}
+
+                                    <option value="{{name}}">{{name}}</option>
+                                    {% endfor %}
+                                </select></div>
+                                <div class="form-group"><label>Kierunek</label> <select class="form-control"
+                                                                                        name="unit_course" required>
+                                    <option value=""></option>
+                                    <optgroup label="A"> {% for name in list_course %} {% if name|length == 1 %}
+                                    </optgroup>
+                                    <optgroup label="{{name}}"> {% else %}
+                                        <option value="{{name}}">{{name}}</option>
+                                        {%endif%} {% endfor %}
+                                    </optgroup>
+                                </select></div>
+                                <div class="form-group"><label>Stopień</label> <select class="form-control"
+                                                                                       name="unit_degree" required>
+                                    <option value="I">I</option>
+                                    <option value="II">II</option>
+                                </select></div>
+                                <div class="form-group"><label>Semestr</label> <select class="form-control"
+                                                                                       name="unit_term" required>
+                                    <option value=""></option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select></div>
+                                <div class="form-group"><label>Budynek</label> <select class="form-control"
+                                                                                       name="unit_building" required>
+                                    <option value=""></option>
+                                     {% for name in list_building %}
+
+                                            <option value="{{name}}">{{name}}</option>
+                                            {% endfor %}
+                                </select></div>
+                                <div class="form-group"><label>Sala</label> <input class="form-control" name="unit_room"
+                                                                                   required type="text"></div>
+                                <div class="form-group"><label>Komentarz</label><input class="form-control"
+                                                                                       name="comment"
+                                                                                       type="text"></div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="submit">ZAPISZ</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-dismiss="modal" type="button">ZAMKNIJ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="mymodal_D" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header"><h4 class="modal-title">DODAJ DYŻUR</h4></div>
+                        <div class="modal-body">
+                            <form action="{{url_for('insert')}}" method="POST"><input name="data_user" type="hidden"
+                                                                                      value="{{current_user.user_name}}">
+                                <div class="form-group"><label>Dzień tygodnia</label> <select class="form-control"
+                                                                                              name="day" required>
+                                    <option value=""></option>
+
+                                    {% for name in list_day %}
+
+                                            <option value="{{name}}">{{name}}</option>
+                                            {% endfor %}
+                                </select></div>
+                                <div class="form-group"><label>Dyżur odbywa się</label> <select class="form-control"
+                                                                                                name="week"
+                                                                                                required>
+                                    <option value="0">co tydzień</option>
+                                    <option value="1">w tygodnie nieparzyste</option>
+                                    <option value="2">w tygodnie parzyste</option>
+                                </select></div>
+                                <div class="form-group"><label>Godzina rozpoczęcia</label> <input class="form-control"
+                                                                                                  name="start" required
+                                                                                                  type="time"></div>
+                                <div class="form-group"><label>Godzina zakończenia</label> <input class="form-control"
+                                                                                                  name="end" required
+                                                                                                  type="time"></div>
+
+                                <input
+                                        name="unit_type" type="hidden" value="D">
+
+                                <input
+                                        name="unit_name" type="hidden" value="">
+
+                                <input
+                                        name="unit_department" type="hidden" value="WARiE">
+
+                                <input
+                                        name="unit_course" type="hidden" value="">
+
+                                <input
+                                        name="unit_degree" type="hidden" value="">
+
+
+                                <input
+                                        name="unit_term" type="hidden" value="">
+
+                                <input name="unit_building" type="hidden" value="EL">
+
+                                <input name="unit_room" type="hidden" value="{{current_user.user_room}}">
+
+                                <div class="form-group"><label>Komentarz</label><input class="form-control"
+                                                                                       name="comment"
+                                                                                       type="text"></div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="submit">ZAPISZ</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-dismiss="modal" type="button">ZAMKNIJ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> {% endblock %}

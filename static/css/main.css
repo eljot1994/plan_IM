@@ -1,0 +1,838 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1rem 0;
+  font-family: -system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  width: 100%;
+  flex-direction: column;
+}
+
+.scheduleContainerAll {
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 0.5fr repeat(44, 1fr);
+  grid-template-areas:
+  "head p_pn p_wt p_sr p_cz p_pt"
+  "person1 p_pn p_wt p_sr p_cz p_pt"
+  "person2 p_pn p_wt p_sr p_cz p_pt"
+  "person3 p_pn p_wt p_sr p_cz p_pt"
+  "person4 p_pn p_wt p_sr p_cz p_pt"
+  "person5 p_pn p_wt p_sr p_cz p_pt"
+  "person6 p_pn p_wt p_sr p_cz p_pt"
+  "person7 p_pn p_wt p_sr p_cz p_pt"
+  "person8 p_pn p_wt p_sr p_cz p_pt"
+  "person9 p_pn p_wt p_sr p_cz p_pt"
+  "person10 p_pn p_wt p_sr p_cz p_pt"
+  "person11 p_pn p_wt p_sr p_cz p_pt"
+  "person12 p_pn p_wt p_sr p_cz p_pt"
+  "person13 p_pn p_wt p_sr p_cz p_pt"
+  "person14 p_pn p_wt p_sr p_cz p_pt"
+  "person15 p_pn p_wt p_sr p_cz p_pt"
+  "person16 p_pn p_wt p_sr p_cz p_pt"
+  "person17 p_pn p_wt p_sr p_cz p_pt"
+  "person18 p_pn p_wt p_sr p_cz p_pt"
+  "person19 p_pn p_wt p_sr p_cz p_pt"
+  "person20 p_pn p_wt p_sr p_cz p_pt"
+  "person31 p_pn p_wt p_sr p_cz p_pt"
+  "person32 p_pn p_wt p_sr p_cz p_pt"
+  "person33 p_pn p_wt p_sr p_cz p_pt"
+  "person34 p_pn p_wt p_sr p_cz p_pt"
+  "person35 p_pn p_wt p_sr p_cz p_pt"
+  "person36 p_pn p_wt p_sr p_cz p_pt"
+  "person37 p_pn p_wt p_sr p_cz p_pt"
+  "person38 p_pn p_wt p_sr p_cz p_pt"
+  "person39 p_pn p_wt p_sr p_cz p_pt"
+  "person40 p_pn p_wt p_sr p_cz p_pt"
+  "person41 p_pn p_wt p_sr p_cz p_pt"
+  "person42 p_pn p_wt p_sr p_cz p_pt"
+  "person43 p_pn p_wt p_sr p_cz p_pt"
+  "person44 p_pn p_wt p_sr p_cz p_pt"
+}
+
+.person {
+  justify-content: flex-start;
+  height: 100%;
+  padding: 0 0.5rem;
+  position: relative;
+    border: solid 1px black;
+}
+
+.person.head {grid-column-start: head; grid-column-end:head}
+.person.pn {grid-column-start: p_pn; grid-column-end:p_pn}
+.person.wt {grid-column-start: p_wt; grid-column-end:p_wt}
+.person.sr {grid-column-start: p_sr; grid-column-end:p_sr}
+.person.cz {grid-column-start: p_cz; grid-column-end:p_cz}
+.person.pt {grid-column-start: p_pt; grid-column-end:p_pt}
+
+.person.person-row-head {grid-row-start: head; grid-row-end: head; font-weight: bold;display: flex;
+  justify-content: center;
+  align-items: center;}
+.person.person-row-1 {grid-row-start: person1; grid-row-end: person1}
+.person.person-row-2 {grid-row-start: person2; grid-row-end: person2}
+.person.person-row-3 {grid-row-start: person3; grid-row-end: person3}
+.person.person-row-4 {grid-row-start: person4; grid-row-end: person4}
+.person.person-row-5 {grid-row-start: person5; grid-row-end: person5}
+.person.person-row-6 {grid-row-start: person6; grid-row-end: person6}
+.person.person-row-7 {grid-row-start: person7; grid-row-end: person7}
+.person.person-row-8 {grid-row-start: person8; grid-row-end: person8}
+.person.person-row-9 {grid-row-start: person9; grid-row-end: person9}
+.person.person-row-10 {grid-row-start: person10; grid-row-end: person10}
+.person.person-row-11 {grid-row-start: person11; grid-row-end: person11}
+.person.person-row-12 {grid-row-start: person12; grid-row-end: person12}
+.person.person-row-13 {grid-row-start: person13; grid-row-end: person13}
+.person.person-row-14 {grid-row-start: person14; grid-row-end: person14}
+.person.person-row-15 {grid-row-start: person15; grid-row-end: person15}
+.person.person-row-16 {grid-row-start: person16; grid-row-end: person16}
+.person.person-row-17 {grid-row-start: person17; grid-row-end: person17}
+.person.person-row-18 {grid-row-start: person18; grid-row-end: person18}
+.person.person-row-19 {grid-row-start: person19; grid-row-end: person19}
+.person.person-row-20 {grid-row-start: person20; grid-row-end: person20}
+.person.person-row-21 {grid-row-start: person21; grid-row-end: person21}
+.person.person-row-22 {grid-row-start: person22; grid-row-end: person22}
+.person.person-row-23 {grid-row-start: person23; grid-row-end: person23}
+.person.person-row-24 {grid-row-start: person24; grid-row-end: person24}
+.person.person-row-25 {grid-row-start: person25; grid-row-end: person25}
+.person.person-row-26 {grid-row-start: person26; grid-row-end: person26}
+.person.person-row-27 {grid-row-start: person27; grid-row-end: person27}
+.person.person-row-28 {grid-row-start: person28; grid-row-end: person28}
+.person.person-row-29 {grid-row-start: person29; grid-row-end: person29}
+.person.person-row-30 {grid-row-start: person30; grid-row-end: person30}
+.person.person-row-31 {grid-row-start: person31; grid-row-end: person31}
+.person.person-row-32 {grid-row-start: person32; grid-row-end: person32}
+.person.person-row-33 {grid-row-start: person33; grid-row-end: person33}
+.person.person-row-34 {grid-row-start: person34; grid-row-end: person34}
+.person.person-row-35 {grid-row-start: person35; grid-row-end: person35}
+.person.person-row-36 {grid-row-start: person36; grid-row-end: person36}
+.person.person-row-37 {grid-row-start: person37; grid-row-end: person37}
+.person.person-row-38 {grid-row-start: person38; grid-row-end: person38}
+.person.person-row-39 {grid-row-start: person39; grid-row-end: person39}
+.person.person-row-40 {grid-row-start: person40; grid-row-end: person40}
+.person.person-row-41 {grid-row-start: person41; grid-row-end: person41}
+.person.person-row-42 {grid-row-start: person42; grid-row-end: person42}
+.person.person-row-43 {grid-row-start: person43; grid-row-end: person43}
+.person.person-row-44 {grid-row-start: person44; grid-row-end: person44}
+
+
+
+
+
+.scheduleContainer {
+  width: 100%;
+  display: grid;
+  grid-gap: 0.25rem;
+  grid-template-columns: 0.3fr repeat(10, 1fr);
+  grid-template-rows: 2rem 2rem repeat(147, 0.5rem);
+  grid-template-areas: "time-head pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+  "time-head1 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+  "time0800 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0805 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0810 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0815 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0820 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0825 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0830 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0835 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0840 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0845 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0850 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0855 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0900 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0905 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0910 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0915 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0920 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0925 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0930 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0935 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0940 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0945 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0950 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time0955 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1000 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1005 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1010 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1015 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1020 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1025 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1030 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1035 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1040 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1045 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1050 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1055 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1100 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1105 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1110 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1115 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1120 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1125 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1130 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1135 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1140 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1145 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1150 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1155 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1200 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1205 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1210 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1215 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1220 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1225 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1230 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1235 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1240 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1245 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1250 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1255 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1300 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1305 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1310 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1315 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1320 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1325 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1330 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1335 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1340 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1345 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1350 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1355 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1400 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1405 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1410 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1415 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1420 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1425 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1430 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1435 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1440 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1445 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1450 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1455 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1500 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1505 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1510 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1515 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1520 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1525 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1530 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1535 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1540 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1545 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1550 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1555 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1600 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1605 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1610 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1615 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1620 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1625 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1630 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1635 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1640 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1645 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1650 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1655 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1700 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1705 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1710 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1715 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1720 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1725 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1730 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1735 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1740 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1745 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1750 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1755 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1800 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1805 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1810 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1815 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1820 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1825 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1830 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1835 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1840 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1845 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1850 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1855 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1900 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1905 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1910 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1915 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1920 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1925 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1930 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1935 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1940 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1945 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1950 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time1955 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+"time2000 pn_np pn_p wt_np wt_p sr_np sr_p cz_np cz_p pt_np pt_p"
+ ;
+  }
+
+/**
+ * Time
+ */
+.time {
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  padding: 0 0.5rem;
+  position: relative;
+}
+
+
+.time span {
+position:absolute;
+top:-12px;
+}
+
+.time.start-head { grid-area: time-head;}
+.time.start-head1 { grid-area: time-head1;}
+.time.start-0800 { grid-area: time0800;}
+.time.start-0805 { grid-area: time0805;}
+.time.start-0810 { grid-area: time0810;}
+.time.start-0815 { grid-area: time0815;}
+.time.start-0820 { grid-area: time0820;}
+.time.start-0825 { grid-area: time0825;}
+.time.start-0830 { grid-area: time0830;}
+.time.start-0835 { grid-area: time0835;}
+.time.start-0840 { grid-area: time0840;}
+.time.start-0845 { grid-area: time0845;}
+.time.start-0850 { grid-area: time0850;}
+.time.start-0855 { grid-area: time0855;}
+.time.start-0900 { grid-area: time0900;}
+.time.start-0905 { grid-area: time0905;}
+.time.start-0910 { grid-area: time0910;}
+.time.start-0915 { grid-area: time0915;}
+.time.start-0920 { grid-area: time0920;}
+.time.start-0925 { grid-area: time0925;}
+.time.start-0930 { grid-area: time0930;}
+.time.start-0935 { grid-area: time0935;}
+.time.start-0940 { grid-area: time0940;}
+.time.start-0945 { grid-area: time0945;}
+.time.start-0950 { grid-area: time0950;}
+.time.start-0955 { grid-area: time0955;}
+.time.start-1000 { grid-area: time1000;}
+.time.start-1005 { grid-area: time1005;}
+.time.start-1010 { grid-area: time1010;}
+.time.start-1015 { grid-area: time1015;}
+.time.start-1020 { grid-area: time1020;}
+.time.start-1025 { grid-area: time1025;}
+.time.start-1030 { grid-area: time1030;}
+.time.start-1035 { grid-area: time1035;}
+.time.start-1040 { grid-area: time1040;}
+.time.start-1045 { grid-area: time1045;}
+.time.start-1050 { grid-area: time1050;}
+.time.start-1055 { grid-area: time1055;}
+.time.start-1100 { grid-area: time1100;}
+.time.start-1105 { grid-area: time1105;}
+.time.start-1110 { grid-area: time1110;}
+.time.start-1115 { grid-area: time1115;}
+.time.start-1120 { grid-area: time1120;}
+.time.start-1125 { grid-area: time1125;}
+.time.start-1130 { grid-area: time1130;}
+.time.start-1135 { grid-area: time1135;}
+.time.start-1140 { grid-area: time1140;}
+.time.start-1145 { grid-area: time1145;}
+.time.start-1150 { grid-area: time1150;}
+.time.start-1155 { grid-area: time1155;}
+.time.start-1200 { grid-area: time1200;}
+.time.start-1205 { grid-area: time1205;}
+.time.start-1210 { grid-area: time1210;}
+.time.start-1215 { grid-area: time1215;}
+.time.start-1220 { grid-area: time1220;}
+.time.start-1225 { grid-area: time1225;}
+.time.start-1230 { grid-area: time1230;}
+.time.start-1235 { grid-area: time1235;}
+.time.start-1240 { grid-area: time1240;}
+.time.start-1245 { grid-area: time1245;}
+.time.start-1250 { grid-area: time1250;}
+.time.start-1255 { grid-area: time1255;}
+.time.start-1300 { grid-area: time1300;}
+.time.start-1305 { grid-area: time1305;}
+.time.start-1310 { grid-area: time1310;}
+.time.start-1315 { grid-area: time1315;}
+.time.start-1320 { grid-area: time1320;}
+.time.start-1325 { grid-area: time1325;}
+.time.start-1330 { grid-area: time1330;}
+.time.start-1335 { grid-area: time1335;}
+.time.start-1340 { grid-area: time1340;}
+.time.start-1345 { grid-area: time1345;}
+.time.start-1350 { grid-area: time1350;}
+.time.start-1355 { grid-area: time1355;}
+.time.start-1400 { grid-area: time1400;}
+.time.start-1405 { grid-area: time1405;}
+.time.start-1410 { grid-area: time1410;}
+.time.start-1415 { grid-area: time1415;}
+.time.start-1420 { grid-area: time1420;}
+.time.start-1425 { grid-area: time1425;}
+.time.start-1430 { grid-area: time1430;}
+.time.start-1435 { grid-area: time1435;}
+.time.start-1440 { grid-area: time1440;}
+.time.start-1445 { grid-area: time1445;}
+.time.start-1450 { grid-area: time1450;}
+.time.start-1455 { grid-area: time1455;}
+.time.start-1500 { grid-area: time1500;}
+.time.start-1505 { grid-area: time1505;}
+.time.start-1510 { grid-area: time1510;}
+.time.start-1515 { grid-area: time1515;}
+.time.start-1520 { grid-area: time1520;}
+.time.start-1525 { grid-area: time1525;}
+.time.start-1530 { grid-area: time1530;}
+.time.start-1535 { grid-area: time1535;}
+.time.start-1540 { grid-area: time1540;}
+.time.start-1545 { grid-area: time1545;}
+.time.start-1550 { grid-area: time1550;}
+.time.start-1555 { grid-area: time1555;}
+.time.start-1600 { grid-area: time1600;}
+.time.start-1605 { grid-area: time1605;}
+.time.start-1610 { grid-area: time1610;}
+.time.start-1615 { grid-area: time1615;}
+.time.start-1620 { grid-area: time1620;}
+.time.start-1625 { grid-area: time1625;}
+.time.start-1630 { grid-area: time1630;}
+.time.start-1635 { grid-area: time1635;}
+.time.start-1640 { grid-area: time1640;}
+.time.start-1645 { grid-area: time1645;}
+.time.start-1650 { grid-area: time1650;}
+.time.start-1655 { grid-area: time1655;}
+.time.start-1700 { grid-area: time1700;}
+.time.start-1705 { grid-area: time1705;}
+.time.start-1710 { grid-area: time1710;}
+.time.start-1715 { grid-area: time1715;}
+.time.start-1720 { grid-area: time1720;}
+.time.start-1725 { grid-area: time1725;}
+.time.start-1730 { grid-area: time1730;}
+.time.start-1735 { grid-area: time1735;}
+.time.start-1740 { grid-area: time1740;}
+.time.start-1745 { grid-area: time1745;}
+.time.start-1750 { grid-area: time1750;}
+.time.start-1755 { grid-area: time1755;}
+.time.start-1800 { grid-area: time1800;}
+.time.start-1805 { grid-area: time1805;}
+.time.start-1810 { grid-area: time1810;}
+.time.start-1815 { grid-area: time1815;}
+.time.start-1820 { grid-area: time1820;}
+.time.start-1825 { grid-area: time1825;}
+.time.start-1830 { grid-area: time1830;}
+.time.start-1835 { grid-area: time1835;}
+.time.start-1840 { grid-area: time1840;}
+.time.start-1845 { grid-area: time1845;}
+.time.start-1850 { grid-area: time1850;}
+.time.start-1855 { grid-area: time1855;}
+.time.start-1900 { grid-area: time1900;}
+.time.start-1905 { grid-area: time1905;}
+.time.start-1910 { grid-area: time1910;}
+.time.start-1915 { grid-area: time1915;}
+.time.start-1920 { grid-area: time1920;}
+.time.start-1925 { grid-area: time1925;}
+.time.start-1930 { grid-area: time1930;}
+.time.start-1935 { grid-area: time1935;}
+.time.start-1940 { grid-area: time1940;}
+.time.start-1945 { grid-area: time1945;}
+.time.start-1950 { grid-area: time1950;}
+.time.start-1955 { grid-area: time1955;}
+.time.start-2000 { grid-area: time2000;}
+
+/**
+ * Event
+ */
+.event {
+  padding: 0.25rem 1rem;
+  background-color: orange;
+
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1;
+  position: relative;
+  z-index:-1;
+}
+
+.sala {
+top: 1rem;
+right:1rem;
+position: absolute;
+}
+
+.typ {
+top:1rem;
+left:1rem;
+position: absolute;
+}
+
+.nazwa {
+top:3rem;
+left: 1rem;
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+text-align: center;
+font-weight: normal;
+font-size: 0.75rem;
+}
+
+.kierunek {
+top: 6rem;
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+text-align: center;
+font-weight: normal;
+font-size: 0.75rem;
+}
+
+
+.komentarz {
+bottom: 2.5rem;
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+text-align: center;
+font-weight: normal;
+font-size: 0.75rem;
+}
+
+.godziny {
+bottom: 1rem;
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+text-align: center;
+font-size: 0.75rem;
+}
+
+.event.start-0800 { grid-row-start: time0800;}
+.event.start-0805 { grid-row-start: time0805;}
+.event.start-0810 { grid-row-start: time0810;}
+.event.start-0815 { grid-row-start: time0815;}
+.event.start-0820 { grid-row-start: time0820;}
+.event.start-0825 { grid-row-start: time0825;}
+.event.start-0830 { grid-row-start: time0830;}
+.event.start-0835 { grid-row-start: time0835;}
+.event.start-0840 { grid-row-start: time0840;}
+.event.start-0845 { grid-row-start: time0845;}
+.event.start-0850 { grid-row-start: time0850;}
+.event.start-0855 { grid-row-start: time0855;}
+.event.start-0900 { grid-row-start: time0900;}
+.event.start-0905 { grid-row-start: time0905;}
+.event.start-0910 { grid-row-start: time0910;}
+.event.start-0915 { grid-row-start: time0915;}
+.event.start-0920 { grid-row-start: time0920;}
+.event.start-0925 { grid-row-start: time0925;}
+.event.start-0930 { grid-row-start: time0930;}
+.event.start-0935 { grid-row-start: time0935;}
+.event.start-0940 { grid-row-start: time0940;}
+.event.start-0945 { grid-row-start: time0945;}
+.event.start-0950 { grid-row-start: time0950;}
+.event.start-0955 { grid-row-start: time0955;}
+.event.start-1000 { grid-row-start: time1000;}
+.event.start-1005 { grid-row-start: time1005;}
+.event.start-1010 { grid-row-start: time1010;}
+.event.start-1015 { grid-row-start: time1015;}
+.event.start-1020 { grid-row-start: time1020;}
+.event.start-1025 { grid-row-start: time1025;}
+.event.start-1030 { grid-row-start: time1030;}
+.event.start-1035 { grid-row-start: time1035;}
+.event.start-1040 { grid-row-start: time1040;}
+.event.start-1045 { grid-row-start: time1045;}
+.event.start-1050 { grid-row-start: time1050;}
+.event.start-1055 { grid-row-start: time1055;}
+.event.start-1100 { grid-row-start: time1100;}
+.event.start-1105 { grid-row-start: time1105;}
+.event.start-1110 { grid-row-start: time1110;}
+.event.start-1115 { grid-row-start: time1115;}
+.event.start-1120 { grid-row-start: time1120;}
+.event.start-1125 { grid-row-start: time1125;}
+.event.start-1130 { grid-row-start: time1130;}
+.event.start-1135 { grid-row-start: time1135;}
+.event.start-1140 { grid-row-start: time1140;}
+.event.start-1145 { grid-row-start: time1145;}
+.event.start-1150 { grid-row-start: time1150;}
+.event.start-1155 { grid-row-start: time1155;}
+.event.start-1200 { grid-row-start: time1200;}
+.event.start-1205 { grid-row-start: time1205;}
+.event.start-1210 { grid-row-start: time1210;}
+.event.start-1215 { grid-row-start: time1215;}
+.event.start-1220 { grid-row-start: time1220;}
+.event.start-1225 { grid-row-start: time1225;}
+.event.start-1230 { grid-row-start: time1230;}
+.event.start-1235 { grid-row-start: time1235;}
+.event.start-1240 { grid-row-start: time1240;}
+.event.start-1245 { grid-row-start: time1245;}
+.event.start-1250 { grid-row-start: time1250;}
+.event.start-1255 { grid-row-start: time1255;}
+.event.start-1300 { grid-row-start: time1300;}
+.event.start-1305 { grid-row-start: time1305;}
+.event.start-1310 { grid-row-start: time1310;}
+.event.start-1315 { grid-row-start: time1315;}
+.event.start-1320 { grid-row-start: time1320;}
+.event.start-1325 { grid-row-start: time1325;}
+.event.start-1330 { grid-row-start: time1330;}
+.event.start-1335 { grid-row-start: time1335;}
+.event.start-1340 { grid-row-start: time1340;}
+.event.start-1345 { grid-row-start: time1345;}
+.event.start-1350 { grid-row-start: time1350;}
+.event.start-1355 { grid-row-start: time1355;}
+.event.start-1400 { grid-row-start: time1400;}
+.event.start-1405 { grid-row-start: time1405;}
+.event.start-1410 { grid-row-start: time1410;}
+.event.start-1415 { grid-row-start: time1415;}
+.event.start-1420 { grid-row-start: time1420;}
+.event.start-1425 { grid-row-start: time1425;}
+.event.start-1430 { grid-row-start: time1430;}
+.event.start-1435 { grid-row-start: time1435;}
+.event.start-1440 { grid-row-start: time1440;}
+.event.start-1445 { grid-row-start: time1445;}
+.event.start-1450 { grid-row-start: time1450;}
+.event.start-1455 { grid-row-start: time1455;}
+.event.start-1500 { grid-row-start: time1500;}
+.event.start-1505 { grid-row-start: time1505;}
+.event.start-1510 { grid-row-start: time1510;}
+.event.start-1515 { grid-row-start: time1515;}
+.event.start-1520 { grid-row-start: time1520;}
+.event.start-1525 { grid-row-start: time1525;}
+.event.start-1530 { grid-row-start: time1530;}
+.event.start-1535 { grid-row-start: time1535;}
+.event.start-1540 { grid-row-start: time1540;}
+.event.start-1545 { grid-row-start: time1545;}
+.event.start-1550 { grid-row-start: time1550;}
+.event.start-1555 { grid-row-start: time1555;}
+.event.start-1600 { grid-row-start: time1600;}
+.event.start-1605 { grid-row-start: time1605;}
+.event.start-1610 { grid-row-start: time1610;}
+.event.start-1615 { grid-row-start: time1615;}
+.event.start-1620 { grid-row-start: time1620;}
+.event.start-1625 { grid-row-start: time1625;}
+.event.start-1630 { grid-row-start: time1630;}
+.event.start-1635 { grid-row-start: time1635;}
+.event.start-1640 { grid-row-start: time1640;}
+.event.start-1645 { grid-row-start: time1645;}
+.event.start-1650 { grid-row-start: time1650;}
+.event.start-1655 { grid-row-start: time1655;}
+.event.start-1700 { grid-row-start: time1700;}
+.event.start-1705 { grid-row-start: time1705;}
+.event.start-1710 { grid-row-start: time1710;}
+.event.start-1715 { grid-row-start: time1715;}
+.event.start-1720 { grid-row-start: time1720;}
+.event.start-1725 { grid-row-start: time1725;}
+.event.start-1730 { grid-row-start: time1730;}
+.event.start-1735 { grid-row-start: time1735;}
+.event.start-1740 { grid-row-start: time1740;}
+.event.start-1745 { grid-row-start: time1745;}
+.event.start-1750 { grid-row-start: time1750;}
+.event.start-1755 { grid-row-start: time1755;}
+.event.start-1800 { grid-row-start: time1800;}
+.event.start-1805 { grid-row-start: time1805;}
+.event.start-1810 { grid-row-start: time1810;}
+.event.start-1815 { grid-row-start: time1815;}
+.event.start-1820 { grid-row-start: time1820;}
+.event.start-1825 { grid-row-start: time1825;}
+.event.start-1830 { grid-row-start: time1830;}
+.event.start-1835 { grid-row-start: time1835;}
+.event.start-1840 { grid-row-start: time1840;}
+.event.start-1845 { grid-row-start: time1845;}
+.event.start-1850 { grid-row-start: time1850;}
+.event.start-1855 { grid-row-start: time1855;}
+.event.start-1900 { grid-row-start: time1900;}
+.event.start-1905 { grid-row-start: time1905;}
+.event.start-1910 { grid-row-start: time1910;}
+.event.start-1915 { grid-row-start: time1915;}
+.event.start-1920 { grid-row-start: time1920;}
+.event.start-1925 { grid-row-start: time1925;}
+.event.start-1930 { grid-row-start: time1930;}
+.event.start-1935 { grid-row-start: time1935;}
+.event.start-1940 { grid-row-start: time1940;}
+.event.start-1945 { grid-row-start: time1945;}
+.event.start-1950 { grid-row-start: time1950;}
+.event.start-1955 { grid-row-start: time1955;}
+.event.start-2000 { grid-row-start: time2000;}
+
+.event.end-0800 { grid-row-end: time0800;}
+.event.end-0805 { grid-row-end: time0805;}
+.event.end-0810 { grid-row-end: time0810;}
+.event.end-0815 { grid-row-end: time0815;}
+.event.end-0820 { grid-row-end: time0820;}
+.event.end-0825 { grid-row-end: time0825;}
+.event.end-0830 { grid-row-end: time0830;}
+.event.end-0835 { grid-row-end: time0835;}
+.event.end-0840 { grid-row-end: time0840;}
+.event.end-0845 { grid-row-end: time0845;}
+.event.end-0850 { grid-row-end: time0850;}
+.event.end-0855 { grid-row-end: time0855;}
+.event.end-0900 { grid-row-end: time0900;}
+.event.end-0905 { grid-row-end: time0905;}
+.event.end-0910 { grid-row-end: time0910;}
+.event.end-0915 { grid-row-end: time0915;}
+.event.end-0920 { grid-row-end: time0920;}
+.event.end-0925 { grid-row-end: time0925;}
+.event.end-0930 { grid-row-end: time0930;}
+.event.end-0935 { grid-row-end: time0935;}
+.event.end-0940 { grid-row-end: time0940;}
+.event.end-0945 { grid-row-end: time0945;}
+.event.end-0950 { grid-row-end: time0950;}
+.event.end-0955 { grid-row-end: time0955;}
+.event.end-1000 { grid-row-end: time1000;}
+.event.end-1005 { grid-row-end: time1005;}
+.event.end-1010 { grid-row-end: time1010;}
+.event.end-1015 { grid-row-end: time1015;}
+.event.end-1020 { grid-row-end: time1020;}
+.event.end-1025 { grid-row-end: time1025;}
+.event.end-1030 { grid-row-end: time1030;}
+.event.end-1035 { grid-row-end: time1035;}
+.event.end-1040 { grid-row-end: time1040;}
+.event.end-1045 { grid-row-end: time1045;}
+.event.end-1050 { grid-row-end: time1050;}
+.event.end-1055 { grid-row-end: time1055;}
+.event.end-1100 { grid-row-end: time1100;}
+.event.end-1105 { grid-row-end: time1105;}
+.event.end-1110 { grid-row-end: time1110;}
+.event.end-1115 { grid-row-end: time1115;}
+.event.end-1120 { grid-row-end: time1120;}
+.event.end-1125 { grid-row-end: time1125;}
+.event.end-1130 { grid-row-end: time1130;}
+.event.end-1135 { grid-row-end: time1135;}
+.event.end-1140 { grid-row-end: time1140;}
+.event.end-1145 { grid-row-end: time1145;}
+.event.end-1150 { grid-row-end: time1150;}
+.event.end-1155 { grid-row-end: time1155;}
+.event.end-1200 { grid-row-end: time1200;}
+.event.end-1205 { grid-row-end: time1205;}
+.event.end-1210 { grid-row-end: time1210;}
+.event.end-1215 { grid-row-end: time1215;}
+.event.end-1220 { grid-row-end: time1220;}
+.event.end-1225 { grid-row-end: time1225;}
+.event.end-1230 { grid-row-end: time1230;}
+.event.end-1235 { grid-row-end: time1235;}
+.event.end-1240 { grid-row-end: time1240;}
+.event.end-1245 { grid-row-end: time1245;}
+.event.end-1250 { grid-row-end: time1250;}
+.event.end-1255 { grid-row-end: time1255;}
+.event.end-1300 { grid-row-end: time1300;}
+.event.end-1305 { grid-row-end: time1305;}
+.event.end-1310 { grid-row-end: time1310;}
+.event.end-1315 { grid-row-end: time1315;}
+.event.end-1320 { grid-row-end: time1320;}
+.event.end-1325 { grid-row-end: time1325;}
+.event.end-1330 { grid-row-end: time1330;}
+.event.end-1335 { grid-row-end: time1335;}
+.event.end-1340 { grid-row-end: time1340;}
+.event.end-1345 { grid-row-end: time1345;}
+.event.end-1350 { grid-row-end: time1350;}
+.event.end-1355 { grid-row-end: time1355;}
+.event.end-1400 { grid-row-end: time1400;}
+.event.end-1405 { grid-row-end: time1405;}
+.event.end-1410 { grid-row-end: time1410;}
+.event.end-1415 { grid-row-end: time1415;}
+.event.end-1420 { grid-row-end: time1420;}
+.event.end-1425 { grid-row-end: time1425;}
+.event.end-1430 { grid-row-end: time1430;}
+.event.end-1435 { grid-row-end: time1435;}
+.event.end-1440 { grid-row-end: time1440;}
+.event.end-1445 { grid-row-end: time1445;}
+.event.end-1450 { grid-row-end: time1450;}
+.event.end-1455 { grid-row-end: time1455;}
+.event.end-1500 { grid-row-end: time1500;}
+.event.end-1505 { grid-row-end: time1505;}
+.event.end-1510 { grid-row-end: time1510;}
+.event.end-1515 { grid-row-end: time1515;}
+.event.end-1520 { grid-row-end: time1520;}
+.event.end-1525 { grid-row-end: time1525;}
+.event.end-1530 { grid-row-end: time1530;}
+.event.end-1535 { grid-row-end: time1535;}
+.event.end-1540 { grid-row-end: time1540;}
+.event.end-1545 { grid-row-end: time1545;}
+.event.end-1550 { grid-row-end: time1550;}
+.event.end-1555 { grid-row-end: time1555;}
+.event.end-1600 { grid-row-end: time1600;}
+.event.end-1605 { grid-row-end: time1605;}
+.event.end-1610 { grid-row-end: time1610;}
+.event.end-1615 { grid-row-end: time1615;}
+.event.end-1620 { grid-row-end: time1620;}
+.event.end-1625 { grid-row-end: time1625;}
+.event.end-1630 { grid-row-end: time1630;}
+.event.end-1635 { grid-row-end: time1635;}
+.event.end-1640 { grid-row-end: time1640;}
+.event.end-1645 { grid-row-end: time1645;}
+.event.end-1650 { grid-row-end: time1650;}
+.event.end-1655 { grid-row-end: time1655;}
+.event.end-1700 { grid-row-end: time1700;}
+.event.end-1705 { grid-row-end: time1705;}
+.event.end-1710 { grid-row-end: time1710;}
+.event.end-1715 { grid-row-end: time1715;}
+.event.end-1720 { grid-row-end: time1720;}
+.event.end-1725 { grid-row-end: time1725;}
+.event.end-1730 { grid-row-end: time1730;}
+.event.end-1735 { grid-row-end: time1735;}
+.event.end-1740 { grid-row-end: time1740;}
+.event.end-1745 { grid-row-end: time1745;}
+.event.end-1750 { grid-row-end: time1750;}
+.event.end-1755 { grid-row-end: time1755;}
+.event.end-1800 { grid-row-end: time1800;}
+.event.end-1805 { grid-row-end: time1805;}
+.event.end-1810 { grid-row-end: time1810;}
+.event.end-1815 { grid-row-end: time1815;}
+.event.end-1820 { grid-row-end: time1820;}
+.event.end-1825 { grid-row-end: time1825;}
+.event.end-1830 { grid-row-end: time1830;}
+.event.end-1835 { grid-row-end: time1835;}
+.event.end-1840 { grid-row-end: time1840;}
+.event.end-1845 { grid-row-end: time1845;}
+.event.end-1850 { grid-row-end: time1850;}
+.event.end-1855 { grid-row-end: time1855;}
+.event.end-1900 { grid-row-end: time1900;}
+.event.end-1905 { grid-row-end: time1905;}
+.event.end-1910 { grid-row-end: time1910;}
+.event.end-1915 { grid-row-end: time1915;}
+.event.end-1920 { grid-row-end: time1920;}
+.event.end-1925 { grid-row-end: time1925;}
+.event.end-1930 { grid-row-end: time1930;}
+.event.end-1935 { grid-row-end: time1935;}
+.event.end-1940 { grid-row-end: time1940;}
+.event.end-1945 { grid-row-end: time1945;}
+.event.end-1950 { grid-row-end: time1950;}
+.event.end-1955 { grid-row-end: time1955;}
+.event.end-2000 { grid-row-end: time2000;}
+
+.event.stage-grey { background-color: #FFA726;}
+.event.stage-przerwa { background-color: #E5E5E5; color: #FFFFFF;opacity: 0.5; z-index:1}
+.event.stage-zajecia { background-color: #b3d9ff}
+.event.stage-dyzur { background-color:  #ffccff}
+.event.stage-dyzurIM { background-color:  #ffccff}
+.event.stage-head {background-color: white; border: 1px solid grey;position: sticky; top:0; z-index:2;padding: 1rem; grid-row-start: time-head; grid-row-end:time-head; }
+.event.stage-head1 {background-color: white;border: 1px solid grey; position: sticky; top:2.25rem; z-index:2;padding: 1rem; grid-row-start: time-head1; grid-row-end:time-head1;}
+
+
+.event.pn {grid-column-start: pn_np; grid-column-end:pn_p}
+.event.wt {grid-column-start: wt_np; grid-column-end:wt_p}
+.event.sr {grid-column-start: sr_np; grid-column-end:sr_p}
+.event.cz {grid-column-start: cz_np; grid-column-end:cz_p}
+.event.pt {grid-column-start: pt_np; grid-column-end:pt_p}
+
+.event.pn_np {grid-column-start: pn_np; grid-column-end:pn_np}
+.event.wt_np {grid-column-start: wt_np; grid-column-end:wt_np}
+.event.sr_np {grid-column-start: sr_np; grid-column-end:sr_np}
+.event.cz_np {grid-column-start: cz_np; grid-column-end:cz_np}
+.event.pt_np {grid-column-start: pt_np; grid-column-end:pt_np}
+
+.event.pn_p {grid-column-start: pn_p; grid-column-end:pn_p}
+.event.wt_p {grid-column-start: wt_p; grid-column-end:wt_p}
+.event.sr_p {grid-column-start: sr_p; grid-column-end:sr_p}
+.event.cz_p {grid-column-start: cz_p; grid-column-end:cz_p}
+.event.pt_p {grid-column-start: pt_p; grid-column-end:pt_p}
+
+
+.event.week {grid-column-start: pn_np; grid-column-end:pt_p}

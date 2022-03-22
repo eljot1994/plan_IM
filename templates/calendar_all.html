@@ -1,0 +1,75 @@
+{% extends 'base.html' %} {% block title %} IM - plan {% endblock %} {% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<div class="scheduleContainerAll">
+    <div class="person person-row-head head">Pracownik</div>
+    <div class="person person-row-head pn">Poniedziałek</div>
+    <div class="person person-row-head wt">Wtorek</div>
+    <div class="person person-row-head sr">Środa</div>
+    <div class="person person-row-head cz">Czwartek</div>
+    <div class="person person-row-head pt">Piątek</div>
+    {% for user in all_users %}
+    <div class="person head person-row-{{loop.index}} head">
+        {{user.user_title}} {{user.user_name}}<br>
+        {{user.user_room}} {{user.user_depar}}
+    </div>
+
+
+    <div class="person person-row-{{loop.index}} pn">
+        {% for unit in units %}
+        {% if unit.data_user == user.user_name%}
+        {% if unit.day == 'pn'%}
+        <div>
+            {{unit.comment|safe}}
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="person person-row-{{loop.index}} wt">
+ {% for unit in units %}
+        {% if unit.data_user == user.user_name%}
+        {% if unit.day == 'wt'%}
+        <div>
+            {{unit.comment|safe}}
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="person person-row-{{loop.index}} sr">
+ {% for unit in units %}
+        {% if unit.data_user == user.user_name%}
+        {% if unit.day == 'sr'%}
+        <div>
+            {{unit.comment|safe}}
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="person person-row-{{loop.index}} cz">
+ {% for unit in units %}
+        {% if unit.data_user == user.user_name%}
+        {% if unit.day == 'cz'%}
+        <div>
+            {{unit.comment|safe}}
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="person person-row-{{loop.index}} pt">
+ {% for unit in units %}
+        {% if unit.data_user == user.user_name%}
+        {% if unit.day == 'pt'%}
+        <div>
+            {{unit.comment|safe}}
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
